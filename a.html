@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Learn Jiu-Jitsu From Zero — Alliance Jiu Jitsu San Diego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0a;
+  --paper:#ffffff;
+  --acc:#FFC20E;
+  --line:#242424;
+  --card:#121212;
+  --mute:#9a9a9a;
+  accent-color:var(--acc);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--paper);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  padding-bottom:calc(78px + env(safe-area-inset-bottom));
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--acc);color:var(--ink)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+.disp{
+  font-family:Anton,"Arial Narrow",Haettenschweiler,Impact,sans-serif;
+  font-weight:400;text-transform:uppercase;letter-spacing:.005em;line-height:.87;margin:0;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.sechead{font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin:0 0 22px}
+
+/* ---------- 1. FOLD ---------- */
+#hero{
+  position:relative;isolation:isolate;
+  min-height:100vh;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:calc(20px + env(safe-area-inset-top)) 0 36px;
+}
+#hero .shot{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:52% 38%}
+#hero .scrim{position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(10,10,10,.82) 0%,rgba(10,10,10,.34) 26%,rgba(10,10,10,.62) 62%,rgba(10,10,10,.96) 100%);}
+.brandbar{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.brandbar b{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.brandbar b i{font-style:normal;color:var(--acc)}
+.brandbar span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#cfcfcf}
+
+.h1{font-size:clamp(3.1rem,15.5vw,5.6rem)}
+.h1 .zero{color:var(--acc);display:block}
+.offer{margin:20px 0 0;max-width:30ch;font-size:15px;line-height:1.4;color:#e6e6e6}
+.offer b{display:block;color:var(--paper);font-weight:600}
+.offer i{display:block;font-style:normal;color:var(--acc);font-weight:600}
+.cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--acc);color:var(--ink);font-weight:700;font-size:16px;letter-spacing:.02em;
+  padding:19px 30px;border-radius:999px;border:0;margin-top:26px;min-height:56px;
+}
+.cta.block{display:flex;width:100%}
+
+/* ---------- 2. FORM ---------- */
+#form{background:var(--ink);padding:44px 0 52px}
+.formhead h2{font-size:clamp(1.9rem,8vw,2.6rem)}
+.formhead p{margin:10px 0 0;color:var(--mute);font-size:14px;max-width:34ch}
+.card{
+  margin-top:22px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc);
+  padding:22px 18px 24px;
+}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:7px}
+.field input{
+  width:100%;background:#0d0d0d;border:1px solid #2b2b2b;border-radius:2px;color:var(--paper);
+  padding:15px 14px;font-size:16px;min-height:52px;-webkit-tap-highlight-color:rgba(255,194,14,.2);
+}
+.field input::placeholder{color:#5e5e5e}
+.field input:focus{outline:0;border-color:var(--acc);box-shadow:inset 0 0 0 1px var(--acc)}
+.field input:-webkit-autofill{-webkit-text-fill-color:#fff;-webkit-box-shadow:0 0 0 60px #0d0d0d inset;caret-color:#fff}
+
+fieldset.chips{border:0;padding:0;margin:20px 0 22px;min-width:0}
+fieldset.chips legend{padding:0;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.chiprow{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
+.chip input{position:absolute;opacity:0;width:0;height:0}
+.chip span{display:inline-block;border:1px solid #333;border-radius:999px;padding:11px 15px;font-size:13.5px;font-weight:500;color:#d8d8d8;cursor:pointer}
+.chip input:checked + span{background:var(--acc);border-color:var(--acc);color:var(--ink);font-weight:700}
+.chip input:focus-visible + span{outline:2px solid var(--acc);outline-offset:3px}
+.microcopy{margin:14px 0 0;font-size:12px;color:#6f6f6f;text-align:center}
+.microcopy a{color:var(--acc);font-weight:600;border-bottom:1px solid rgba(255,194,14,.4)}
+
+section{padding:56px 0}
+
+/* receipt */
+.receipt .row{display:flex;align-items:baseline;padding:15px 0;border-bottom:1px solid #1c1c1c}
+.receipt .row:first-of-type{border-top:1px solid #1c1c1c}
+.receipt .what{font-size:16px;font-weight:600}
+.receipt .lead{flex:1 1 auto;min-width:14px;border-bottom:1px dotted #3a3a3a;margin:0 10px 5px}
+.receipt .val{font-size:13px;color:var(--mute);text-align:right;flex:0 0 auto;max-width:46%}
+.total{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:26px}
+.total .price{font-size:clamp(4rem,22vw,7rem);color:var(--acc)}
+.total .terms{padding-bottom:10px;text-align:right}
+.total .terms b{display:block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.total .terms span{display:block;font-size:12px;color:var(--mute);margin-top:3px}
+
+/* urgency */
+.urgency{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0d0d0d}
+.stat{display:flex;align-items:center;gap:20px}
+.stat .num{font-size:clamp(6.2rem,34vw,11rem);line-height:.78}
+.stat .lab{font-size:clamp(1.25rem,6vw,1.9rem);max-width:9ch}
+.deadline{margin-top:26px;padding-top:20px;border-top:1px solid #1c1c1c;display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.deadline .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.deadline .v{font-size:clamp(1.4rem,7vw,2rem);color:var(--acc)}
+
+/* coach */
+.coach .name{font-size:clamp(2.8rem,14vw,5rem)}
+.coach .rank{font-size:clamp(1.05rem,5vw,1.45rem);color:var(--acc);margin:14px 0 0;font-weight:600}
+.coach .cred{margin:16px 0 0;font-size:15px;color:#d0d0d0;max-width:32ch}
+.coach .bars{display:flex;gap:5px;margin-top:26px}
+.coach .bars i{display:block;height:8px;width:38px;background:var(--acc)}
+.coach .bars i:nth-child(n+4){background:#2a2a2a}
+
+/* proof */
+.proof{border-top:1px solid var(--line)}
+.prow{display:flex;align-items:center;gap:18px;padding:26px 0;border-bottom:1px solid #1c1c1c}
+.prow .big{font-size:clamp(2.6rem,13vw,3.6rem);color:var(--acc);flex:0 0 auto;line-height:.9}
+.prow .txt{font-size:14.5px;line-height:1.35}
+.prow .txt b{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:5px}
+.stars{letter-spacing:.12em;color:var(--acc);font-size:13px}
+.guard{font-size:clamp(1.15rem,5.6vw,1.6rem);line-height:1.15;padding:26px 0 0;max-width:20ch}
+.guard em{font-style:normal;color:var(--acc)}
+
+/* final */
+#final{position:relative;isolation:isolate;padding:0;border-top:1px solid var(--line)}
+#final .shot{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:30% 50%}
+#final .scrim{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,10,.72) 0%,rgba(10,10,10,.9) 100%)}
+#final .inner{padding:66px 22px 74px}
+#final h2{font-size:clamp(2.9rem,14vw,5rem)}
+#final h2 em{font-style:normal;color:var(--acc)}
+#final p{margin:16px 0 0;font-size:14.5px;color:#dcdcdc}
+
+footer{padding:34px 0 40px;border-top:1px solid var(--line)}
+footer .addr{font-size:13px;color:var(--mute);line-height:1.6}
+footer .addr b{color:#e2e2e2;font-weight:600}
+footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
+
+/* dock */
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;gap:10px;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(10,10,10,.97);border-top:1px solid #262626;
+  transform:translateY(120%);transition:transform .22s ease;
+}
+.dock.on{transform:none}
+.dock a{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:999px;font-weight:700;font-size:15px}
+.dock .call{flex:0 0 33%;border:1px solid #3a3a3a;color:var(--paper);letter-spacing:.06em}
+.dock .go{flex:1 1 auto;background:var(--acc);color:var(--ink);font-weight:800}
+
+@media (min-width:820px){
+  body{padding-bottom:0}
+  .dock{display:none}
+  #hero{padding:34px 0 66px;min-height:94svh}
+  .h1{font-size:clamp(4.6rem,8.4vw,8rem)}
+  .h1 .zero{display:inline;margin-left:.28em}
+  .offer{display:flex;gap:26px;max-width:none;align-items:baseline;font-size:17px;margin-top:26px}
+  .offer b,.offer i{display:inline}
+  .cta{margin-top:34px;padding:21px 40px;font-size:17px}
+  section{padding:96px 0}
+  .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+  .card{margin-top:0;padding:30px 28px}
+  .formhead p{font-size:15px}
+  .stat .num{font-size:13rem}
+  .stat .lab{font-size:2.4rem}
+  .receipt .val{font-size:14px}
+  .prow{padding:32px 0}
+  #final .inner{padding:130px 22px 140px}
+  .guard{font-size:2rem;max-width:26ch}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ===== 1. FOLD: photo + headline + offer line + CTA ===== -->
+<header id="hero">
+  <img class="shot" src="photo.webp" alt="Adult beginner class in white gis training at Alliance Jiu Jitsu San Diego">
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="wrap brandbar">
+    <b>Alliance<i>·</i>Jiu Jitsu</b>
+    <span>San Diego</span>
+  </div>
+
+  <div class="wrap">
+    <h1 class="disp h1">Learn<br>Jiu-Jitsu<span class="zero">From Zero</span></h1>
+    <p class="offer">
+      <b>A beginner-only group. Everyone starts together, Oct 3.</b>
+      <i>Black belt coach. $199 once, gi included.</i>
+    </p>
+    <a class="cta" href="#form">Claim one of 12 seats</a>
+  </div>
+</header>
+
+<!-- ===== 2. FORM ===== -->
+<section id="form">
+  <div class="wrap">
+    <div class="split">
+      <div class="formhead">
+        <h2 class="disp">Put your name<br>on a seat</h2>
+        <p>Twenty seconds. We text you back the same day with the details.</p>
+      </div>
+
+      <form class="card" action="#" method="post">
+        <div class="field">
+          <label for="a-name">Name</label>
+          <input id="a-name" name="name" type="text" autocomplete="name" placeholder="First and last" required>
+        </div>
+        <div class="field">
+          <label for="a-phone">Phone</label>
+          <input id="a-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(619) 555-0134" required>
+        </div>
+        <div class="field">
+          <label for="a-email">Email</label>
+          <input id="a-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+        </div>
+
+        <fieldset class="chips">
+          <legend>What do you want answered?</legend>
+          <div class="chiprow">
+            <label class="chip"><input type="radio" name="question" value="too-old" checked><span>Am I too old?</span></label>
+            <label class="chip"><input type="radio" name="question" value="safe"><span>Is it safe?</span></label>
+            <label class="chip"><input type="radio" name="question" value="wear"><span>What do I wear?</span></label>
+          </div>
+        </fieldset>
+
+        <button class="cta block" type="submit">Send it</button>
+        <p class="microcopy">Or call the gym: <a href="tel:+10000000000">tap to call</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. RECEIPT ===== -->
+<section class="receipt">
+  <div class="wrap">
+    <p class="sechead">One payment, everything in it</p>
+    <div class="row"><span class="what">Beginner group class</span><span class="lead"></span><span class="val">Saturdays 10–11:30am</span></div>
+    <div class="row"><span class="what">Alliance gi, yours to keep</span><span class="lead"></span><span class="val">$195 at the front desk</span></div>
+    <div class="row"><span class="what">Coached by a black belt</span><span class="lead"></span><span class="val">Vando Silva, 3rd degree</span></div>
+    <div class="row"><span class="what">Membership required</span><span class="lead"></span><span class="val">None. Ever.</span></div>
+    <div class="total">
+      <span class="disp price">$199</span>
+      <span class="terms"><b>One payment</b><span>Nothing auto-renews</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. URGENCY ===== -->
+<section class="urgency">
+  <div class="wrap">
+    <div class="stat">
+      <span class="disp num">12</span>
+      <span class="disp lab">Seats. One gi each.</span>
+    </div>
+    <div class="deadline">
+      <span class="k">Enrollment closes</span>
+      <span class="disp v">Sep 26</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. COACH ===== -->
+<section class="coach">
+  <div class="wrap">
+    <p class="sechead">Who is teaching you</p>
+    <h2 class="disp name">Vando<br>Silva</h2>
+    <p class="rank">3rd-degree black belt</p>
+    <p class="cred">He runs the beginner group himself — first Saturday to last.</p>
+    <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+</section>
+
+<!-- ===== 6. PROOF + GUARANTEE ===== -->
+<section class="proof">
+  <div class="wrap">
+    <div class="prow">
+      <span class="disp big">4.9</span>
+      <span class="txt">
+        <b>Google rating</b>
+        <span class="stars" aria-hidden="true">★★★★★</span> from 213 students
+      </span>
+    </div>
+    <p class="disp guard">Train the first Saturday. Not for you? <em>Full refund.</em></p>
+  </div>
+</section>
+
+<!-- ===== 7. FINAL CTA ===== -->
+<section id="final">
+  <img class="shot" src="photo.webp" alt="">
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="wrap" style="padding:0">
+      <h2 class="disp">Oct 3.<br><em>12 seats.</em></h2>
+      <a class="cta" href="#form">Claim one of 12 seats</a>
+      <p>8990 Miramar Rd, Suite 225 · Enrollment closes Sep 26</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="addr"><b>Alliance Jiu Jitsu San Diego</b><br>8990 Miramar Rd, Suite 225, San Diego, CA</p>
+    <p class="fine">Beginner group starts Saturday, Oct 3 · Saturdays 10–11:30am · $199 one payment, no membership.</p>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Quick actions">
+  <a class="call" href="tel:+10000000000">Call</a>
+  <a class="go" href="#form">Claim a seat</a>
+</nav>
+
+<script>
+(function(){
+  var dock=document.querySelector('.dock'),hero=document.getElementById('hero');
+  if(!dock||!hero||!('IntersectionObserver' in window)){if(dock)dock.classList.add('on');return;}
+  new IntersectionObserver(function(e){
+    dock.classList.toggle('on', e[0].intersectionRatio < 0.35);
+  },{threshold:[0,0.35,1]}).observe(hero);
+})();
+</script>
+</body>
+</html>

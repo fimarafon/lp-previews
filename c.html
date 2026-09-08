@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your First Day Won't Be Alone — Alliance Jiu Jitsu San Diego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0a;
+  --paper:#ffffff;
+  --acc:#FFC20E;
+  --line:#282828;
+  --mute:#9c9c9c;
+  accent-color:var(--acc);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--paper);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  padding-bottom:calc(78px + env(safe-area-inset-bottom));
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--acc);color:var(--ink)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+
+/* poster display: expanded, heavy */
+.poster{
+  font-family:Archivo,"Helvetica Neue",Arial,sans-serif;
+  font-weight:900;font-stretch:118%;
+  text-transform:uppercase;line-height:.92;letter-spacing:-.005em;margin:0;
+}
+.tag{
+  font-family:Archivo,Arial,sans-serif;font-weight:700;font-stretch:100%;
+  font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;margin:0;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+.rule.acc{background:var(--acc);height:2px}
+
+/* ---------- 1. FOLD (poster plate) ---------- */
+#hero{
+  min-height:100vh;min-height:100svh;
+  display:grid;grid-template-rows:auto auto minmax(140px,1fr) auto;
+  padding-top:calc(12px + env(safe-area-inset-top));
+}
+.ticket{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:0 18px 12px;color:#d6d6d6}
+.ticket .b{color:var(--paper)}
+.ticket .n{color:var(--acc)}
+.headline{padding:16px 18px 18px;border-top:2px solid var(--acc)}
+.headline h1{font-size:clamp(1.75rem,8.1vw,5.6rem)}
+.headline h1 em{font-style:normal;display:block;color:var(--acc)}
+.plate{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.plate img{width:100%;height:100%;min-height:150px;object-fit:cover;object-position:52% 42%;filter:grayscale(1) contrast(1.12) brightness(.92)}
+.foot{padding:18px 18px 26px}
+.foot .sub{margin:0 0 18px;font-size:15px;line-height:1.35;max-width:30ch;color:#e4e4e4}
+.foot .sub b{color:var(--acc);font-weight:700}
+.cta{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  width:100%;background:var(--acc);color:var(--ink);
+  font-family:Archivo,Arial,sans-serif;font-weight:900;font-stretch:100%;
+  text-transform:uppercase;letter-spacing:.04em;font-size:16px;
+  border:0;padding:20px 22px;min-height:60px;
+}
+.cta .arw{font-weight:700}
+.cta.pill{border-radius:999px;justify-content:center;letter-spacing:.05em}
+.cta.dark{background:var(--ink);color:var(--acc)}
+
+/* ---------- 2. FORM ---------- */
+#form{padding:0 0 46px}
+.formhead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:26px 18px 14px}
+.formhead h2{font-size:clamp(1.7rem,7.6vw,2.4rem)}
+.formhead .tag{color:var(--acc)}
+.card{margin:0 18px;border:1px solid var(--line);border-top:2px solid var(--acc);background:#111;padding:20px 16px 20px}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+.field input{
+  width:100%;background:#0a0a0a;border:0;border-bottom:1px solid #333;color:var(--paper);
+  padding:13px 2px;font-size:16px;min-height:50px;border-radius:0;
+  -webkit-tap-highlight-color:rgba(255,194,14,.2);
+}
+.field input::placeholder{color:#585858}
+.field input:focus{outline:0;border-bottom:2px solid var(--acc);padding-bottom:12px}
+.field input:-webkit-autofill{-webkit-text-fill-color:#fff;-webkit-box-shadow:0 0 0 60px #0a0a0a inset;caret-color:#fff}
+fieldset.chips{border:0;padding:0;margin:20px 0 22px;min-width:0}
+fieldset.chips legend{padding:0;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.chiprow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip input{position:absolute;opacity:0;width:0;height:0}
+.chip span{display:inline-block;border:1px solid #383838;border-radius:999px;padding:11px 15px;font-size:13.5px;font-weight:500;color:#dcdcdc;cursor:pointer}
+.chip input:checked + span{background:var(--acc);border-color:var(--acc);color:var(--ink);font-weight:700}
+.chip input:focus-visible + span{outline:2px solid var(--acc);outline-offset:3px}
+.under{margin:14px 0 0;font-size:12.5px;color:#6d6d6d;text-align:center}
+.under a{color:var(--acc);font-weight:600;border-bottom:1px solid rgba(255,194,14,.4)}
+
+/* ---------- ticker strip ---------- */
+.strip{
+  background:var(--acc);color:var(--ink);overflow:hidden;white-space:nowrap;
+  font-family:Archivo,Arial,sans-serif;font-weight:900;font-stretch:100%;
+  text-transform:uppercase;letter-spacing:.1em;font-size:12px;padding:11px 0;
+}
+.strip span{padding:0 14px}
+
+/* ---------- numbered poster sections ---------- */
+.sec{padding:36px 0 40px;border-bottom:1px solid var(--line)}
+.sec .head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+.sec .no{font-family:Archivo,Arial,sans-serif;font-weight:900;font-stretch:118%;font-size:15px;color:var(--acc)}
+.sec .lb{font-size:10.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--mute)}
+
+/* 01 price ledger — inverted */
+.sec.invert{background:var(--acc);color:var(--ink);border-bottom:0}
+.sec.invert .no{color:rgba(10,10,10,.55)}
+.sec.invert .lb{color:rgba(10,10,10,.62)}
+.ledger .amt{font-size:clamp(4.6rem,26vw,10rem);line-height:.8;margin:0 0 6px}
+.ledger .note{font-size:clamp(1.1rem,5vw,1.6rem);margin:0 0 24px}
+.ledger dl{margin:0;border-top:2px solid rgba(10,10,10,.25)}
+.ledger .li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid rgba(10,10,10,.25)}
+.ledger dt{font-size:15.5px;font-weight:700}
+.ledger dd{margin:0;font-size:12.5px;font-weight:600;color:rgba(10,10,10,.68);text-align:right;flex:0 0 auto;max-width:46%}
+
+/* 02 seats numeral */
+.seats .huge{font-size:clamp(9rem,45vw,20rem);line-height:.72;color:var(--paper);margin:0}
+.seats .cap{font-size:clamp(1.25rem,6vw,2rem);margin:6px 0 0}
+.seats .cap b{color:var(--acc)}
+.closes{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:26px;padding-top:16px;border-top:2px solid var(--acc)}
+.closes .k{font-size:10.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+.closes .v{font-size:clamp(1.5rem,8vw,2.4rem);color:var(--acc)}
+
+/* 03 coach */
+.sec.coach{padding-bottom:0}
+.coachplate{margin-top:6px;border-top:1px solid var(--line);overflow:hidden;height:280px}
+.coachplate img{width:100%;height:100%;object-fit:cover;object-position:22% 45%;filter:grayscale(1) contrast(1.1)}
+.coachbar{background:var(--paper);color:var(--ink);padding:22px 18px 24px}
+.coachbar h2{font-size:clamp(2rem,10vw,3.4rem)}
+.coachbar .rank{margin:10px 0 0;font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.coachbar .cred{margin:8px 0 0;font-size:15px;color:#3a3a3a;max-width:34ch}
+
+/* 04 proof */
+.proof .n49{font-size:clamp(5rem,26vw,9rem);line-height:.8;color:var(--acc);margin:0}
+.proof .from{margin:8px 0 0;font-size:15px}
+.proof .stars{color:var(--acc);letter-spacing:.12em}
+.proof .guarantee{margin:28px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:clamp(1.15rem,5.4vw,1.7rem);line-height:1.15;max-width:22ch}
+.proof .guarantee b{color:var(--acc)}
+
+/* 05 final */
+#final{background:var(--acc);color:var(--ink);padding:44px 0 50px}
+#final h2{font-size:clamp(2.4rem,12vw,4.4rem)}
+#final .meta{margin:16px 0 24px;font-size:14.5px;font-weight:600;line-height:1.4}
+footer{padding:30px 0 36px;font-size:13px;color:var(--mute);line-height:1.6}
+footer b{color:#e6e6e6;font-weight:600}
+footer .fine{margin-top:12px;font-size:11px;color:#5c5c5c}
+
+/* dock */
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(10,10,10,.97);border-top:1px solid #2a2a2a;
+  transform:translateY(120%);transition:transform .22s ease;
+}
+.dock.on{transform:none}
+.dock a{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:999px;
+  font-family:Archivo,Arial,sans-serif;font-weight:900;font-stretch:100%;text-transform:uppercase;letter-spacing:.05em;font-size:14px}
+.dock .call{flex:0 0 32%;border:1px solid #3d3d3d;color:var(--paper)}
+.dock .go{flex:1 1 auto;background:var(--acc);color:var(--ink)}
+
+@media (min-width:880px){
+  body{padding-bottom:0}
+  .dock{display:none}
+  #hero{grid-template-rows:auto auto minmax(220px,1fr) auto;min-height:96svh}
+  .ticket{padding:0 40px 14px}
+  .headline{padding:26px 40px 24px}
+  .headline h1{font-size:clamp(3.4rem,7.6vw,7.4rem)}
+  .headline h1 em{display:inline;margin-left:.3em}
+  .foot{display:grid;grid-template-columns:1fr auto;align-items:end;gap:50px;padding:28px 40px 40px}
+  .foot .sub{margin:0;font-size:18px;max-width:40ch}
+  .cta{width:auto;padding:22px 40px;font-size:17px}
+  .wrap{padding:0 40px}
+  .formhead{padding:44px 40px 18px}
+  .formhead h2{font-size:2.6rem}
+  .card{margin:0 40px;padding:32px 34px;display:grid;grid-template-columns:1fr 1fr;gap:0 34px}
+  .card .f1{grid-column:1}
+  .card .f2{grid-column:2}
+  .card .f3{grid-column:1/-1}
+  .card fieldset.chips{grid-column:1/-1}
+  .card button{grid-column:1/-1}
+  .card .under{grid-column:1/-1}
+  .sec{padding:72px 0 76px}
+  .ledger .top{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:end}
+  .ledger .amt{font-size:10rem;margin:0}
+  .seats .row{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
+  .seats .huge{font-size:17rem}
+  .coachplate{height:460px}
+  .coachbar{padding:34px 40px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
+  .coachbar h2{font-size:4rem}
+  .proof .row{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
+  .proof .guarantee{margin-top:44px;font-size:2rem;max-width:26ch}
+  #final{padding:96px 0 104px}
+  #final .inner{display:flex;align-items:flex-end;justify-content:space-between;gap:48px}
+  #final h2{font-size:5rem}
+  #final .meta{margin-bottom:0}
+  .strip{font-size:14px;padding:14px 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ===== 1. FOLD ===== -->
+<header id="hero">
+  <p class="ticket tag"><span class="b">Alliance Jiu Jitsu</span> <span>San Diego</span> <span class="n">Beginner Group 01</span></p>
+
+  <div class="headline">
+    <h1 class="poster">Your first day<em>Won't be alone</em></h1>
+  </div>
+
+  <div class="plate">
+    <img src="photo.webp" alt="Adult beginners in white gis training together at Alliance Jiu Jitsu San Diego">
+  </div>
+
+  <div class="foot">
+    <p class="sub">A whole group of beginners starts together. Oct 3. <b>$199 once. Gi included.</b></p>
+    <a class="cta" href="#form">Take a seat <span class="arw">→</span></a>
+  </div>
+</header>
+
+<!-- ===== 2. FORM ===== -->
+<section id="form">
+  <div class="formhead">
+    <h2 class="poster">Get on the list</h2>
+    <p class="tag">12 seats</p>
+  </div>
+  <form class="card" action="#" method="post">
+    <div class="field f1">
+      <label for="c-name">Name</label>
+      <input id="c-name" name="name" type="text" autocomplete="name" placeholder="First and last" required>
+    </div>
+    <div class="field f2">
+      <label for="c-phone">Phone</label>
+      <input id="c-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(619) 555-0134" required>
+    </div>
+    <div class="field f3">
+      <label for="c-email">Email</label>
+      <input id="c-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+    </div>
+
+    <fieldset class="chips">
+      <legend>One question, and we'll answer it</legend>
+      <div class="chiprow">
+        <label class="chip"><input type="radio" name="question" value="never" checked><span>I've never trained</span></label>
+        <label class="chip"><input type="radio" name="question" value="safe"><span>Is it safe?</span></label>
+        <label class="chip"><input type="radio" name="question" value="bring"><span>What do I bring?</span></label>
+      </div>
+    </fieldset>
+
+    <button class="cta pill" type="submit">Send it</button>
+    <p class="under">Or <a href="tel:+10000000000">call the front desk</a></p>
+  </form>
+</section>
+
+<p class="strip" aria-hidden="true"><span>Sat Oct 3</span>·<span>10–11:30am</span>·<span>$199 once</span>·<span>Gi included</span>·<span>12 seats</span>·<span>Closes Sep 26</span>·<span>Sat Oct 3</span>·<span>10–11:30am</span>·<span>$199 once</span></p>
+
+<!-- ===== 3. PRICE LEDGER ===== -->
+<section class="sec invert">
+  <div class="wrap ledger">
+    <div class="head"><span class="no">01</span><span class="lb">What the $199 buys</span></div>
+    <div class="top">
+      <div>
+        <p class="poster amt">$199</p>
+        <p class="poster note">Once. No membership.</p>
+      </div>
+      <dl>
+        <div class="li"><dt>Beginner group class</dt><dd>Saturdays 10–11:30am</dd></div>
+        <div class="li"><dt>Alliance gi you keep</dt><dd>$195 at the front desk</dd></div>
+        <div class="li"><dt>Black belt teaching it</dt><dd>Every Saturday</dd></div>
+        <div class="li"><dt>Auto-renew</dt><dd>None</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. SEATS ===== -->
+<section class="sec seats">
+  <div class="wrap">
+    <div class="head"><span class="no">02</span><span class="lb">How big the group is</span></div>
+    <div class="row">
+      <p class="poster huge">12</p>
+      <p class="poster cap">Seats.<br><b>One gi each.</b></p>
+    </div>
+    <div class="closes">
+      <span class="k">Enrollment closes</span>
+      <span class="poster v">Sep 26</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. COACH ===== -->
+<section class="sec coach">
+  <div class="wrap">
+    <div class="head"><span class="no">03</span><span class="lb">Who runs the group</span></div>
+  </div>
+  <div class="coachplate">
+    <img src="photo.webp" alt="Coach on the mat with the adult beginner class">
+  </div>
+  <div class="coachbar">
+    <h2 class="poster">Vando Silva</h2>
+    <div>
+      <p class="rank">3rd-degree black belt</p>
+      <p class="cred">He teaches the beginner group himself, first Saturday to last.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. PROOF + GUARANTEE ===== -->
+<section class="sec proof">
+  <div class="wrap">
+    <div class="head"><span class="no">04</span><span class="lb">What students say elsewhere</span></div>
+    <div class="row">
+      <p class="poster n49">4.9</p>
+      <p class="from"><span class="stars" aria-hidden="true">★★★★★</span><br>213 students, rated on Google</p>
+    </div>
+    <p class="poster guarantee">Train the first Saturday. Not for you? <b>Full refund.</b></p>
+  </div>
+</section>
+
+<!-- ===== 7. FINAL ===== -->
+<section id="final">
+  <div class="wrap inner">
+    <div>
+      <div class="head" style="margin-bottom:16px"><span class="no" style="color:rgba(10,10,10,.55)">05</span><span class="lb" style="color:rgba(10,10,10,.62)">Last call</span></div>
+      <h2 class="poster">Saturday<br>Oct 3</h2>
+      <p class="meta">12 seats · $199 once · gi included<br>8990 Miramar Rd, Suite 225</p>
+    </div>
+    <a class="cta dark pill" href="#form">Take a seat</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>Alliance Jiu Jitsu San Diego</b><br>8990 Miramar Rd, Suite 225, San Diego, CA</p>
+    <p class="fine">Beginner-only group · Saturdays 10–11:30am from Oct 3 · enrollment closes Sep 26.</p>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Quick actions">
+  <a class="call" href="tel:+10000000000">Call</a>
+  <a class="go" href="#form">Take a seat — $199</a>
+</nav>
+
+<script>
+(function(){
+  var dock=document.querySelector('.dock'),hero=document.getElementById('hero');
+  if(!dock||!hero||!('IntersectionObserver' in window)){if(dock)dock.classList.add('on');return;}
+  new IntersectionObserver(function(e){
+    dock.classList.toggle('on', e[0].intersectionRatio < 0.35);
+  },{threshold:[0,0.35,1]}).observe(hero);
+})();
+</script>
+</body>
+</html>
