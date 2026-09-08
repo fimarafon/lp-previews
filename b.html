@@ -236,6 +236,7 @@ footer .fine{margin-top:12px;font-size:11px;color:#5b5b5b}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media(min-width:1024px){.hero-inline-cta{display:none}}
+@media(min-width:1024px){section#form{display:none}}
 </style>
 </head>
 <body>
@@ -258,7 +259,7 @@ footer .fine{margin-top:12px;font-size:11px;color:#5b5b5b}
     </div>
 
     <!-- desktop only (>=1024px): same card as the form section below -->
-    <form class="card herocard" action="#" method="post" aria-label="I'm interested">
+    <form id="heroform" class="card herocard" action="#" method="post" aria-label="I'm interested">
       <h2 class="disp ch">I'm interested</h2>
       <p class="cs">Three fields. We text you back today.</p>
 
@@ -468,5 +469,6 @@ footer .fine{margin-top:12px;font-size:11px;color:#5b5b5b}
   }catch(err){dock.classList.add('on');}
 })();
 </script>
+<script>(function(){try{var mq=window.matchMedia("(min-width:1024px)");document.querySelectorAll('a[href="#form"]').forEach(function(a){a.addEventListener("click",function(e){if(mq.matches){e.preventDefault();var h=document.getElementById("heroform");if(h){h.scrollIntoView({behavior:"smooth"});var i=h.querySelector("input");if(i)i.focus({preventScroll:true});}}});});}catch(e){}})();</script>
 </body>
 </html>
