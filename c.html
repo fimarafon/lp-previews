@@ -96,6 +96,7 @@ fieldset.chips legend{padding:0;font-size:10px;font-weight:700;letter-spacing:.2
 .chip input:focus-visible + span{outline:2px solid var(--acc);outline-offset:3px}
 .under{margin:14px 0 0;font-size:12.5px;color:#6d6d6d;text-align:center}
 .under a{color:var(--acc);font-weight:600;border-bottom:1px solid rgba(255,194,14,.4)}
+.consent{margin:13px 0 0;font-size:11.5px;line-height:1.55;color:#6a6a6a}
 
 /* ---------- ticker strip ---------- */
 .strip{
@@ -126,6 +127,14 @@ fieldset.chips legend{padding:0;font-size:10px;font-weight:700;letter-spacing:.2
 .seats .huge{font-size:clamp(9rem,45vw,20rem);line-height:.72;color:var(--paper);margin:0}
 .seats .cap{font-size:clamp(1.25rem,6vw,2rem);margin:6px 0 0}
 .seats .cap b{color:var(--acc)}
+.seats .row.five{margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+.seats .big5{font-size:clamp(6rem,32vw,12rem);line-height:.72;color:var(--acc);margin:0}
+.seats .cap5{font-size:clamp(1.15rem,5.4vw,1.8rem);margin:6px 0 0}
+.seats .cap5 b{display:block;margin-top:10px;font-family:Inter,sans-serif;font-weight:500;font-stretch:100%;font-size:13px;letter-spacing:0;text-transform:none;color:var(--mute);line-height:1.4}
+.unlimited{margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+.unlimited .u{font-stretch:80%;font-size:clamp(2.6rem,15vw,5.5rem);color:var(--acc);line-height:.9}
+.unlimited .ul{margin:8px 0 0;font-size:clamp(1.15rem,5.6vw,1.9rem)}
+.unlimited .un{margin:12px 0 0;font-size:14px;color:#c8c8c8;max-width:38ch;line-height:1.45}
 .closes{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:26px;padding-top:16px;border-top:2px solid var(--acc)}
 .closes .k{font-size:10.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
 .closes .v{font-size:clamp(1.5rem,8vw,2.4rem);color:var(--acc)}
@@ -143,6 +152,16 @@ fieldset.chips legend{padding:0;font-size:10px;font-weight:700;letter-spacing:.2
 .proof .n49{font-size:clamp(5rem,26vw,9rem);line-height:.8;color:var(--acc);margin:0}
 .proof .from{margin:8px 0 0;font-size:15px}
 .proof .stars{color:var(--acc);letter-spacing:.12em}
+.proof .ph{font-size:clamp(1.85rem,9vw,3rem);margin:0 0 22px}
+.reel{
+  display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  margin:0 -18px 26px;padding:0 18px 14px;
+}
+.reel::-webkit-scrollbar{display:none}
+.reel figure{flex:0 0 74%;max-width:320px;margin:0;scroll-snap-align:center}
+.reel img{width:100%;height:210px;object-fit:cover;filter:grayscale(1) contrast(1.1);border-bottom:2px solid var(--acc)}
+.reel figcaption{margin-top:10px;font-family:Archivo,Arial,sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
 .proof .guarantee{margin:28px 0 0;padding-top:20px;border-top:1px solid var(--line);font-size:clamp(1.15rem,5.4vw,1.7rem);line-height:1.15;max-width:22ch}
 .proof .guarantee b{color:var(--acc)}
 
@@ -187,6 +206,7 @@ footer .fine{margin-top:12px;font-size:11px;color:#5c5c5c}
   .card .f3{grid-column:1/-1}
   .card fieldset.chips{grid-column:1/-1}
   .card button{grid-column:1/-1}
+  .card .consent{grid-column:1/-1}
   .card .under{grid-column:1/-1}
   .sec{padding:72px 0 76px}
   .ledger .top{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:end}
@@ -197,6 +217,9 @@ footer .fine{margin-top:12px;font-size:11px;color:#5c5c5c}
   .coachbar{padding:34px 40px 40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end}
   .coachbar h2{font-size:4rem}
   .proof .row{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
+  .reel{margin:0 -40px 34px;padding:0 40px 16px}
+  .reel figure{flex:0 0 300px}
+  .reel img{height:250px}
   .proof .guarantee{margin-top:44px;font-size:2rem;max-width:26ch}
   #final{padding:96px 0 104px}
   #final .inner{display:flex;align-items:flex-end;justify-content:space-between;gap:48px}
@@ -223,7 +246,7 @@ footer .fine{margin-top:12px;font-size:11px;color:#5c5c5c}
 
   <div class="foot">
     <p class="sub">A whole group of beginners starts together. Oct 3. <b>$199 once. Gi included.</b></p>
-    <a class="cta" href="#form">Take a seat <span class="arw">→</span></a>
+    <a class="cta" id="heroCta" href="#form">I'm interested <span class="arw">→</span></a>
   </div>
 </header>
 
@@ -256,7 +279,8 @@ footer .fine{margin-top:12px;font-size:11px;color:#5c5c5c}
       </div>
     </fieldset>
 
-    <button class="cta pill" type="submit">Send it</button>
+    <button class="cta pill" type="submit">I'm interested</button>
+    <p class="consent">By submitting, you confirm you're 18+ and agree to receive texts about this program from Alliance Jiu Jitsu. Msg &amp; data rates may apply. Reply STOP to opt out.</p>
     <p class="under">Or <a href="tel:+10000000000">call the front desk</a></p>
   </form>
 </section>
@@ -290,6 +314,15 @@ footer .fine{margin-top:12px;font-size:11px;color:#5c5c5c}
       <p class="poster huge">12</p>
       <p class="poster cap">Seats.<br><b>One gi each.</b></p>
     </div>
+    <div class="row five">
+      <p class="poster big5">5</p>
+      <p class="poster cap5">Saturday classes,<br>this group only<b>Saturdays 10&ndash;11:30am</b></p>
+    </div>
+    <div class="unlimited">
+      <p class="poster u">Unlimited</p>
+      <p class="poster ul">weekday classes</p>
+      <p class="un">Fundamentals runs every weekday, 2x a day &mdash; all five weeks.</p>
+    </div>
     <div class="closes">
       <span class="k">Enrollment closes</span>
       <span class="poster v">Sep 26</span>
@@ -317,10 +350,31 @@ footer .fine{margin-top:12px;font-size:11px;color:#5c5c5c}
 <!-- ===== 6. PROOF + GUARANTEE ===== -->
 <section class="sec proof">
   <div class="wrap">
-    <div class="head"><span class="no">04</span><span class="lb">What students say elsewhere</span></div>
+    <div class="head"><span class="no">04</span><span class="lb">Straight from the mats</span></div>
+    <h2 class="poster ph">Real people.<br>Real classes.</h2>
+
+    <div class="reel">
+      <figure>
+        <img src="photo.webp" alt="Beginner group training in the gym, August">
+        <figcaption>August group, week 3</figcaption>
+      </figure>
+      <figure>
+        <img src="photo.webp" alt="Beginners lined up before class">
+        <figcaption>July group, first Saturday</figcaption>
+      </figure>
+      <figure>
+        <img src="photo.webp" alt="Weekday fundamentals class on the mat">
+        <figcaption>Weekday fundamentals, 6pm</figcaption>
+      </figure>
+      <figure>
+        <img src="photo.webp" alt="Students drilling in pairs">
+        <figcaption>September group, week 1</figcaption>
+      </figure>
+    </div>
+
     <div class="row">
       <p class="poster n49">4.9</p>
-      <p class="from"><span class="stars" aria-hidden="true">★★★★★</span><br>213 students, rated on Google</p>
+      <p class="from"><span class="stars" aria-hidden="true">★★★★★</span><br>Rated by 213 students on Google</p>
     </div>
     <p class="poster guarantee">Train the first Saturday. Not for you? <b>Full refund.</b></p>
   </div>
@@ -334,7 +388,7 @@ footer .fine{margin-top:12px;font-size:11px;color:#5c5c5c}
       <h2 class="poster">Saturday<br>Oct 3</h2>
       <p class="meta">12 seats · $199 once · gi included<br>8990 Miramar Rd, Suite 225</p>
     </div>
-    <a class="cta dark pill" href="#form">Take a seat</a>
+    <a class="cta dark pill" href="#form">I'm interested</a>
   </div>
 </section>
 
@@ -347,16 +401,20 @@ footer .fine{margin-top:12px;font-size:11px;color:#5c5c5c}
 
 <nav class="dock" aria-label="Quick actions">
   <a class="call" href="tel:+10000000000">Call</a>
-  <a class="go" href="#form">Take a seat — $199</a>
+  <a class="go" href="#form">I'm interested</a>
 </nav>
 
 <script>
 (function(){
-  var dock=document.querySelector('.dock'),hero=document.getElementById('hero');
-  if(!dock||!hero||!('IntersectionObserver' in window)){if(dock)dock.classList.add('on');return;}
-  new IntersectionObserver(function(e){
-    dock.classList.toggle('on', e[0].intersectionRatio < 0.35);
-  },{threshold:[0,0.35,1]}).observe(hero);
+  var dock=document.querySelector('.dock'),anchor=document.getElementById('heroCta');
+  if(!dock)return;
+  try{
+    if(!anchor||!('IntersectionObserver' in window)){dock.classList.add('on');return;}
+    new IntersectionObserver(function(e){
+      var r=e[0];
+      dock.classList.toggle('on', !r.isIntersecting && r.boundingClientRect.top < 0);
+    },{threshold:0}).observe(anchor);
+  }catch(err){dock.classList.add('on');}
 })();
 </script>
 </body>

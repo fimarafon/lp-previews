@@ -91,6 +91,7 @@ fieldset.chips legend{padding:0;font-size:10px;font-weight:700;letter-spacing:.2
 .chip input:focus-visible + span{outline:2px solid var(--acc);outline-offset:3px}
 .microcopy{margin:14px 0 0;font-size:12px;color:#6f6f6f;text-align:center}
 .microcopy a{color:var(--acc);font-weight:600;border-bottom:1px solid rgba(255,194,14,.4)}
+.consent{margin:13px 0 0;font-size:11.5px;line-height:1.55;color:#6a6a6a}
 
 section{padding:56px 0}
 
@@ -111,6 +112,15 @@ section{padding:56px 0}
 .stat{display:flex;align-items:center;gap:20px}
 .stat .num{font-size:clamp(6.2rem,34vw,11rem);line-height:.78}
 .stat .lab{font-size:clamp(1.25rem,6vw,1.9rem);max-width:9ch}
+.stat .txt{display:block;min-width:0}
+.stat .sub{display:block;margin-top:9px;font-size:12.5px;line-height:1.4;color:var(--mute)}
+.stat + .stat,.stat.unl{margin-top:26px;padding-top:24px;border-top:1px solid #1c1c1c}
+.stat.five .num{font-size:clamp(4.8rem,26vw,8.5rem)}
+.stat.five .lab{font-size:clamp(1.05rem,5.2vw,1.6rem);max-width:12ch;display:block}
+.stat.unl{display:block}
+.stat.unl .num{display:block;font-size:clamp(2.6rem,13vw,5rem);color:var(--acc);line-height:.92}
+.stat.unl .lab{display:block;margin-top:4px;font-size:clamp(1.25rem,6vw,1.9rem);max-width:none}
+.stat.unl .sub{max-width:36ch}
 .deadline{margin-top:26px;padding-top:20px;border-top:1px solid #1c1c1c;display:flex;justify-content:space-between;align-items:baseline;gap:14px}
 .deadline .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
 .deadline .v{font-size:clamp(1.4rem,7vw,2rem);color:var(--acc)}
@@ -130,6 +140,16 @@ section{padding:56px 0}
 .prow .txt{font-size:14.5px;line-height:1.35}
 .prow .txt b{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);font-weight:700;margin-bottom:5px}
 .stars{letter-spacing:.12em;color:var(--acc);font-size:13px}
+.proof h2{font-size:clamp(2rem,9.5vw,3.2rem);margin:0 0 20px}
+.reel{
+  display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  margin:0 -22px 4px;padding:0 22px 14px;
+}
+.reel::-webkit-scrollbar{display:none}
+.reel figure{flex:0 0 76%;max-width:320px;margin:0;scroll-snap-align:center}
+.reel img{width:100%;height:210px;object-fit:cover;border:1px solid var(--line)}
+.reel figcaption{margin-top:9px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
 .guard{font-size:clamp(1.15rem,5.6vw,1.6rem);line-height:1.15;padding:26px 0 0;max-width:20ch}
 .guard em{font-style:normal;color:var(--acc)}
 
@@ -176,6 +196,8 @@ footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
   .stat .lab{font-size:2.4rem}
   .receipt .val{font-size:14px}
   .prow{padding:32px 0}
+  .reel figure{flex:0 0 300px}
+  .reel img{height:230px}
   #final .inner{padding:130px 22px 140px}
   .guard{font-size:2rem;max-width:26ch}
 }
@@ -200,7 +222,7 @@ footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
       <b>A beginner-only group. Everyone starts together, Oct 3.</b>
       <i>Black belt coach. $199 once, gi included.</i>
     </p>
-    <a class="cta" href="#form">Claim one of 12 seats</a>
+    <a class="cta" id="heroCta" href="#form">I'm interested</a>
   </div>
 </header>
 
@@ -236,7 +258,8 @@ footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
           </div>
         </fieldset>
 
-        <button class="cta block" type="submit">Send it</button>
+        <button class="cta block" type="submit">I'm interested</button>
+        <p class="consent">By submitting, you confirm you're 18+ and agree to receive texts about this program from Alliance Jiu Jitsu. Msg &amp; data rates may apply. Reply STOP to opt out.</p>
         <p class="microcopy">Or call the gym: <a href="tel:+10000000000">tap to call</a></p>
       </form>
     </div>
@@ -265,6 +288,20 @@ footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
       <span class="disp num">12</span>
       <span class="disp lab">Seats. One gi each.</span>
     </div>
+    <div class="stat five">
+      <span class="disp num">5</span>
+      <span class="txt">
+        <span class="disp lab">Saturday classes, this group only</span>
+        <span class="sub">Saturdays 10&ndash;11:30am</span>
+      </span>
+    </div>
+    <div class="stat unl">
+      <span class="disp num">Unlimited</span>
+      <span class="txt">
+        <span class="disp lab">weekday classes</span>
+        <span class="sub">Fundamentals runs every weekday, 2x a day &mdash; all five weeks.</span>
+      </span>
+    </div>
     <div class="deadline">
       <span class="k">Enrollment closes</span>
       <span class="disp v">Sep 26</span>
@@ -286,11 +323,33 @@ footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
 <!-- ===== 6. PROOF + GUARANTEE ===== -->
 <section class="proof">
   <div class="wrap">
+    <p class="sechead">Straight from the mats</p>
+    <h2 class="disp">Real people.<br>Real classes.</h2>
+
+    <div class="reel">
+      <figure>
+        <img src="photo.webp" alt="Beginner group training in the gym, August">
+        <figcaption>August group, week 3</figcaption>
+      </figure>
+      <figure>
+        <img src="photo.webp" alt="Beginners lined up before class">
+        <figcaption>July group, first Saturday</figcaption>
+      </figure>
+      <figure>
+        <img src="photo.webp" alt="Weekday fundamentals class on the mat">
+        <figcaption>Weekday fundamentals, 6pm</figcaption>
+      </figure>
+      <figure>
+        <img src="photo.webp" alt="Students drilling in pairs">
+        <figcaption>September group, week 1</figcaption>
+      </figure>
+    </div>
+
     <div class="prow">
       <span class="disp big">4.9</span>
       <span class="txt">
         <b>Google rating</b>
-        <span class="stars" aria-hidden="true">★★★★★</span> from 213 students
+        <span class="stars" aria-hidden="true">★★★★★</span> Rated by 213 students on Google
       </span>
     </div>
     <p class="disp guard">Train the first Saturday. Not for you? <em>Full refund.</em></p>
@@ -304,7 +363,7 @@ footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
   <div class="inner">
     <div class="wrap" style="padding:0">
       <h2 class="disp">Oct 3.<br><em>12 seats.</em></h2>
-      <a class="cta" href="#form">Claim one of 12 seats</a>
+      <a class="cta" href="#form">I'm interested</a>
       <p>8990 Miramar Rd, Suite 225 · Enrollment closes Sep 26</p>
     </div>
   </div>
@@ -319,16 +378,20 @@ footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
 
 <nav class="dock" aria-label="Quick actions">
   <a class="call" href="tel:+10000000000">Call</a>
-  <a class="go" href="#form">Claim a seat</a>
+  <a class="go" href="#form">I'm interested</a>
 </nav>
 
 <script>
 (function(){
-  var dock=document.querySelector('.dock'),hero=document.getElementById('hero');
-  if(!dock||!hero||!('IntersectionObserver' in window)){if(dock)dock.classList.add('on');return;}
-  new IntersectionObserver(function(e){
-    dock.classList.toggle('on', e[0].intersectionRatio < 0.35);
-  },{threshold:[0,0.35,1]}).observe(hero);
+  var dock=document.querySelector('.dock'),anchor=document.getElementById('heroCta');
+  if(!dock)return;
+  try{
+    if(!anchor||!('IntersectionObserver' in window)){dock.classList.add('on');return;}
+    new IntersectionObserver(function(e){
+      var r=e[0];
+      dock.classList.toggle('on', !r.isIntersecting && r.boundingClientRect.top < 0);
+    },{threshold:0}).observe(anchor);
+  }catch(err){dock.classList.add('on');}
 })();
 </script>
 </body>
