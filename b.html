@@ -72,6 +72,8 @@ a{color:inherit;text-decoration:none}
   background:var(--card);border:1px solid var(--line);border-top:4px solid var(--acc);
   margin-top:-26px;padding:24px 18px 22px;
 }
+/* desktop-only copy of the card, lives in the hero grid */
+.herocard{display:none}
 .card .ch{font-size:clamp(1.55rem,7vw,2rem)}
 .card .cs{margin:8px 0 20px;font-size:13.5px;color:var(--mute)}
 .field{margin-bottom:12px}
@@ -212,6 +214,26 @@ footer .fine{margin-top:12px;font-size:11px;color:#5b5b5b}
   #final h2{font-size:5.4rem}
   #final .btn{margin-top:0}
 }
+
+/* ---------- desktop: hero becomes copy + floating form card ---------- */
+@media (min-width:1024px){
+  #hero{min-height:100svh;padding:30px 20px 56px}
+  .herogrid{
+    grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);
+    gap:52px;align-items:center;
+  }
+  .herogrid > div{min-width:0}
+  .herogrid .h1{font-size:clamp(3.4rem,5.4vw,5.4rem)}
+  .herogrid .sub{max-width:30ch}
+  .herocard{
+    display:block;min-width:0;margin:0;
+    box-shadow:0 26px 60px rgba(0,0,0,.55);
+  }
+  .herocard .field{margin-bottom:10px}
+  .herocard fieldset.chips{margin:16px 0 18px}
+  /* card below no longer needs to dock over the fold — the hero holds one now */
+  #form{margin-top:0;padding:24px 0 96px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -233,6 +255,37 @@ footer .fine{margin-top:12px;font-size:11px;color:#5b5b5b}
       <p class="sub"><strong>This group is only for people who've never stepped on a mat.</strong> Starts Oct 3 — <span class="price">$199, gi included.</span></p>
       <a class="btn" id="heroCta" href="#form">I'm interested</a>
     </div>
+
+    <!-- desktop only (>=1024px): same card as the form section below -->
+    <form class="card herocard" action="#" method="post" aria-label="I'm interested">
+      <h2 class="disp ch">I'm interested</h2>
+      <p class="cs">Three fields. We text you back today.</p>
+
+      <div class="field">
+        <label for="b-name-h">Name</label>
+        <input id="b-name-h" name="name" type="text" autocomplete="name" placeholder="First and last" required>
+      </div>
+      <div class="field">
+        <label for="b-phone-h">Phone</label>
+        <input id="b-phone-h" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(619) 555-0134" required>
+      </div>
+      <div class="field">
+        <label for="b-email-h">Email</label>
+        <input id="b-email-h" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+      </div>
+
+      <fieldset class="chips">
+        <legend>Pick your one question</legend>
+        <div class="chiprow">
+          <label class="chip"><input type="radio" name="question" value="fit" checked><span>Do I need to be fit?</span></label>
+          <label class="chip"><input type="radio" name="question" value="safe"><span>Is it safe?</span></label>
+          <label class="chip"><input type="radio" name="question" value="miss"><span>What if I miss a week?</span></label>
+        </div>
+      </fieldset>
+
+      <button class="btn block" type="submit">I'm interested</button>
+      <p class="consent">By submitting, you confirm you're 18+ and agree to receive texts about this program from Alliance Jiu Jitsu. Msg &amp; data rates may apply. Reply STOP to opt out.</p>
+    </form>
   </div>
 </header>
 
@@ -309,11 +362,11 @@ footer .fine{margin-top:12px;font-size:11px;color:#5b5b5b}
     </div>
     <div class="seatline">
       <span class="disp num">12</span>
-      <span class="txt">seats in the group. One gi per seat.</span>
+      <span class="txt">seats in the group. Gi included.</span>
     </div>
     <div class="seatline five">
       <span class="disp num">5</span>
-      <span class="txt">Saturday classes, this group only<b>Saturdays 10&ndash;11:30am</b></span>
+      <span class="txt">Exclusive Saturday classes &mdash; only this group can attend<b>Saturdays 10&ndash;11:30am</b></span>
     </div>
     <div class="unlimited">
       <p class="disp u">Unlimited</p>

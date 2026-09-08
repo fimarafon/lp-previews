@@ -72,6 +72,8 @@ a{color:inherit;text-decoration:none}
   margin-top:22px;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--acc);
   padding:22px 18px 24px;
 }
+/* desktop-only copy of the card, lives in the hero grid */
+.herocard{display:none}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:7px}
 .field input{
@@ -116,7 +118,7 @@ section{padding:56px 0}
 .stat .sub{display:block;margin-top:9px;font-size:12.5px;line-height:1.4;color:var(--mute)}
 .stat + .stat,.stat.unl{margin-top:26px;padding-top:24px;border-top:1px solid #1c1c1c}
 .stat.five .num{font-size:clamp(4.8rem,26vw,8.5rem)}
-.stat.five .lab{font-size:clamp(1.05rem,5.2vw,1.6rem);max-width:12ch;display:block}
+.stat.five .lab{font-size:clamp(1.05rem,5.2vw,1.6rem);max-width:15ch;display:block}
 .stat.unl{display:block}
 .stat.unl .num{display:block;font-size:clamp(2.6rem,13vw,5rem);color:var(--acc);line-height:.92}
 .stat.unl .lab{display:block;margin-top:4px;font-size:clamp(1.25rem,6vw,1.9rem);max-width:none}
@@ -201,6 +203,27 @@ footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
   #final .inner{padding:130px 22px 140px}
   .guard{font-size:2rem;max-width:26ch}
 }
+
+/* ---------- desktop: hero becomes copy + floating form card ---------- */
+@media (min-width:1024px){
+  #hero{min-height:100svh;padding:34px 0 56px}
+  .herogrid{
+    display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);
+    gap:54px;align-items:center;
+  }
+  .herocopy{min-width:0}
+  .herogrid .h1{font-size:clamp(4rem,6vw,6.4rem)}
+  .herogrid .h1 .zero{display:block;margin-left:0}
+  .herogrid .offer{display:block;max-width:34ch;font-size:16px;margin-top:22px}
+  .herogrid .offer b,.herogrid .offer i{display:block}
+  .herogrid .cta{margin-top:28px}
+  .herocard{
+    display:block;min-width:0;margin:0;padding:26px 26px 26px;
+    box-shadow:0 26px 60px rgba(0,0,0,.55);
+  }
+  .herocard .field{margin-bottom:12px}
+  .herocard fieldset.chips{margin:16px 0 18px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -216,13 +239,44 @@ footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
     <span>San Diego</span>
   </div>
 
-  <div class="wrap">
-    <h1 class="disp h1">Learn<br>Jiu-Jitsu<span class="zero">From Zero</span></h1>
-    <p class="offer">
-      <b>A beginner-only group. Everyone starts together, Oct 3.</b>
-      <i>Black belt coach. $199 once, gi included.</i>
-    </p>
-    <a class="cta" id="heroCta" href="#form">I'm interested</a>
+  <div class="wrap herogrid">
+    <div class="herocopy">
+      <h1 class="disp h1">Learn<br>Jiu-Jitsu<span class="zero">From Zero</span></h1>
+      <p class="offer">
+        <b>A beginner-only group. Everyone starts together, Oct 3.</b>
+        <i>Black belt coach. $199 once, gi included.</i>
+      </p>
+      <a class="cta" id="heroCta" href="#form">I'm interested</a>
+    </div>
+
+    <!-- desktop only (>=1024px): same card as the form section below -->
+    <form class="card herocard" action="#" method="post" aria-label="Put your name on a seat">
+      <p class="sechead">Put your name on a seat</p>
+      <div class="field">
+        <label for="a-name-h">Name</label>
+        <input id="a-name-h" name="name" type="text" autocomplete="name" placeholder="First and last" required>
+      </div>
+      <div class="field">
+        <label for="a-phone-h">Phone</label>
+        <input id="a-phone-h" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(619) 555-0134" required>
+      </div>
+      <div class="field">
+        <label for="a-email-h">Email</label>
+        <input id="a-email-h" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+      </div>
+
+      <fieldset class="chips">
+        <legend>What do you want answered?</legend>
+        <div class="chiprow">
+          <label class="chip"><input type="radio" name="question" value="too-old" checked><span>Am I too old?</span></label>
+          <label class="chip"><input type="radio" name="question" value="safe"><span>Is it safe?</span></label>
+          <label class="chip"><input type="radio" name="question" value="wear"><span>What do I wear?</span></label>
+        </div>
+      </fieldset>
+
+      <button class="cta block" type="submit">I'm interested</button>
+      <p class="consent">By submitting, you confirm you're 18+ and agree to receive texts about this program from Alliance Jiu Jitsu. Msg &amp; data rates may apply. Reply STOP to opt out.</p>
+    </form>
   </div>
 </header>
 
@@ -286,12 +340,12 @@ footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
   <div class="wrap">
     <div class="stat">
       <span class="disp num">12</span>
-      <span class="disp lab">Seats. One gi each.</span>
+      <span class="disp lab">Seats. Gi included.</span>
     </div>
     <div class="stat five">
       <span class="disp num">5</span>
       <span class="txt">
-        <span class="disp lab">Saturday classes, this group only</span>
+        <span class="disp lab">Exclusive Saturday classes &mdash; only this group can attend</span>
         <span class="sub">Saturdays 10&ndash;11:30am</span>
       </span>
     </div>
