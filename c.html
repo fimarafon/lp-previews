@@ -227,6 +227,31 @@ footer .fine{margin-top:12px;font-size:11px;color:#5c5c5c}
   #final .meta{margin-bottom:0}
   .strip{font-size:14px;padding:14px 0}
 }
+
+/* ---------- wide desktop: fill the frame ---------- */
+@media (min-width:1280px){
+  /* poster plate stays full-bleed: 40px gutters => ~1360 band at 1440 */
+  .wrap{max-width:1280px;padding:0 40px}      /* 1200px of content */
+  .sec{padding:84px 0 88px}
+
+  .headline{padding:30px 40px 26px}
+  .headline h1{font-size:clamp(4rem,8vw,8.4rem)}
+  .foot{padding:32px 40px 44px;gap:64px}
+  .foot .sub{font-size:19px;max-width:44ch}
+  .formhead{padding:52px 40px 18px}
+  .card{padding:36px 40px;gap:0 40px}
+
+  .ledger .top{grid-template-columns:.85fr 1.15fr;gap:72px}
+  .ledger .amt{font-size:11rem}
+  .seats .row{gap:56px}
+  .seats .huge{font-size:19rem}
+  .coachbar{padding:40px 40px 46px;gap:56px}
+  .coachbar h2{font-size:4.6rem}
+  .proof .row{gap:56px}
+  .proof .guarantee{font-size:2.25rem}
+  #final .inner{gap:64px}
+  #final h2{font-size:5.6rem}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>

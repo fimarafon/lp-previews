@@ -234,6 +234,29 @@ footer .fine{margin-top:12px;font-size:11px;color:#5b5b5b}
   /* card below no longer needs to dock over the fold — the hero holds one now */
   #form{margin-top:0;padding:24px 0 96px}
 }
+
+/* ---------- wide desktop: fill the frame ---------- */
+@media (min-width:1280px){
+  .wrap{max-width:1280px;padding:0 40px}      /* 1200px of content */
+  #hero{padding:30px 40px 56px}
+  .topbar{max-width:1400px;margin:0 auto;width:100%}
+  .herogrid{max-width:1400px;gap:72px}        /* hero band runs wider */
+
+  .herogrid .h1{font-size:clamp(4rem,5.8vw,6.4rem)}
+  .herogrid .sub{max-width:34ch;font-size:18px}
+  .herocard{padding:34px 32px}
+
+  .offerblk .top{gap:72px}
+  .offerblk .amt{font-size:11rem}
+  .dgrid{gap:0 72px}
+  .dcell + .dcell{padding-left:72px}
+  .dcell .v{font-size:5.6rem}
+  .coachtxt{gap:72px}
+  .coachtxt h2{font-size:5rem}
+  .reel{margin:0 -40px;padding:0 40px 22px}
+  #final .inner{gap:64px}
+  #final h2{font-size:6rem}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media(min-width:1024px){.hero-inline-cta{display:none}}
 @media(min-width:1024px){section#form{display:none}}

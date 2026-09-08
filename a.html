@@ -224,6 +224,29 @@ footer .fine{margin-top:14px;font-size:11px;color:#5c5c5c}
   .herocard .field{margin-bottom:12px}
   .herocard fieldset.chips{margin:16px 0 18px}
 }
+
+/* ---------- wide desktop: fill the frame ---------- */
+@media (min-width:1280px){
+  .wrap{max-width:1280px;padding:0 40px}      /* 1200px of content */
+  #hero .wrap{max-width:1400px}               /* hero band runs wider */
+  section{padding:110px 0}
+
+  .herogrid{gap:72px}
+  .herogrid .h1{font-size:clamp(4.4rem,6.2vw,7.2rem)}
+  .herogrid .offer{font-size:17px;max-width:36ch}
+  .herocard{padding:32px 32px}
+
+  .reel{margin:0 -40px 4px;padding:0 40px 14px}
+  .total .price{font-size:8.5rem}
+  .stat .num{font-size:14.5rem}
+  .stat .lab{font-size:2.7rem}
+  .coach .name{font-size:5.6rem}
+  .proof h2{font-size:3.6rem}
+  .guard{font-size:2.25rem}
+  #final .inner{padding:140px 40px 150px}
+  #final .inner > .wrap{max-width:1200px}
+  #final h2{font-size:5.6rem}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media(min-width:1024px){.hero-inline-cta{display:none}}
 @media(min-width:1024px){section#form{display:none}}
